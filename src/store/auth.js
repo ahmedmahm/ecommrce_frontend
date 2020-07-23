@@ -49,6 +49,10 @@ export default ({
                 commit('SET_USER', null)
                 commit('SET_TOKEN', null)
             })
+        },
+        async register( { dispatch }, credentials){
+            let response = await axios.post('auth/register', credentials)
+            return  dispatch('attempt', response.data.access_token)
         }
     }
 })
