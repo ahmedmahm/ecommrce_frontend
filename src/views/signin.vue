@@ -19,8 +19,7 @@
 </template>
 
 <script>
-    import axios from 'axios'
-
+    import { mapActions } from 'vuex'
     export default {
         name: 'signin',
         components: {
@@ -35,9 +34,15 @@
             }
         },
         methods:{
-            async submit () {
-                let response = axios.post('http://127.0.0.1:80/api/auth/login',this.form)
-                console.log(response.data);
+            ...mapActions({
+                signin : 'auth/signIn'
+            }),
+           submit () {
+                this.signin(this.form).then(() => {
+                    this.$router.replace({
+                        name: 'dashboard'
+                    })
+                })
             }
         }
     }
