@@ -8,9 +8,9 @@
             </router-link>
         </li>
         <template v-if="authenticated">
-        <li>
-            Hello {{user.name}}
-        </li>
+            <li>
+                {{user.name}}
+            </li>
         <li>
             <router-link
                     :to="{name:'dashboard'}"
