@@ -8,9 +8,6 @@
             </router-link>
         </li>
         <template v-if="authenticated">
-            <li>
-                {{user.name}}
-            </li>
         <li>
             <router-link
                     :to="{name:'dashboard'}"
@@ -19,7 +16,7 @@
             </router-link>
         </li>
         <li>
-            <a href="#">Sign Out</a>
+            <a href="#" @click.prevent="signOut">Sign Out</a>
         </li>
         </template>
         <template v-else>
@@ -35,13 +32,22 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters, mapActions } from 'vuex'
     export default {
         computed:{
             ...mapGetters({
                 authenticated : 'auth/authenticated',
                 user : 'auth/user',
             })
+        },
+        methods: {
+            ...mapActions({
+                signOutAction: 'auth/signOut'
+            }),
+            signOut () {
+                this.signOutAction()
+
+            }
         }
     }
 </script>
