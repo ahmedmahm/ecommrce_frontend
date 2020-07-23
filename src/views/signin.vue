@@ -38,7 +38,11 @@
                 signin : 'auth/signIn'
             }),
            submit () {
-                this.signin(this.form)
+                this.signin(this.form).then(() => {
+                    this.$router.replace({
+                        name: 'dashboard'
+                    })
+                })
             }
         }
     }
