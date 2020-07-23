@@ -1,5 +1,6 @@
 <template>
     <ul>
+
         <li>
             <router-link
                 :to="{name:'Home'}"
@@ -8,6 +9,9 @@
             </router-link>
         </li>
         <template v-if="authenticated">
+            <li>
+                {{ user.name }}
+            </li>
         <li>
             <router-link
                     :to="{name:'dashboard'}"
@@ -20,6 +24,13 @@
         </li>
         </template>
         <template v-else>
+            <li>
+                <router-link
+                        :to="{name:'register'}"
+                >
+                    Register
+                </router-link>
+            </li>
             <li>
                 <router-link
                         :to="{name:'signin'}"
