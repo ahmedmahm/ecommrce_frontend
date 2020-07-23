@@ -19,7 +19,7 @@
 </template>
 
 <script>
-
+    import axios from 'axios'
 
     export default {
         name: 'signin',
@@ -35,8 +35,9 @@
             }
         },
         methods:{
-            submit () {
-                console.log('submitted');
+            async submit () {
+                let response = axios.post('http://127.0.0.1:80/api/auth/login',this.form)
+                console.log(response.data);
             }
         }
     }
