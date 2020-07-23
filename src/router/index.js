@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import signin from '../views/signin.vue'
+import dashboard from '../views/dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -10,8 +12,16 @@ Vue.use(VueRouter)
     name: 'Home',
     component: Home
   },
-
-
+    {
+      path: '/signin',
+      name: 'signin',
+      component: signin
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: dashboard
+    }
 ]
 
 const router = new VueRouter({
