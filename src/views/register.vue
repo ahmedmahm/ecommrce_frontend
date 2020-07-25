@@ -6,16 +6,16 @@
         </div>
         <div>
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" v-model="form.email">
+            <input type="email" name="email" id="email" v-model="form.email">
         </div>
         <div>
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" v-model="form.password">
+            <input type="password"  id="password" v-model="form.password">
         </div>
 
         <div>
             <label for="password_confirmation">Password</label>
-            <input type="password" name="password_confirmation" id="password_confirmation" v-model="form.password_confirmation">
+            <input type="password"  id="password_confirmation" v-model="form.password_confirmation">
         </div>
 
         <div>
