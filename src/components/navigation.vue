@@ -49,6 +49,7 @@
             ...mapGetters({
                 authenticated : 'auth/authenticated',
                 user : 'auth/user',
+
             })
         },
         methods: {
