@@ -4,7 +4,9 @@ export default ({
     namespaced: true,
     state: {
         token: null,
-        user: null
+        user: '',
+        verify: null,
+        name: '',
     },
     getters: {
         authenticated (state){
@@ -12,6 +14,9 @@ export default ({
         },
         user(state) {
             return state.user
+        },
+        verified(state){
+            return state.verify
         }
     },
     mutations: {
@@ -20,6 +25,9 @@ export default ({
         },
         SET_USER(state, data){
             state.user = data
+        },
+        SET_VERIFICATION(state, verify){
+            state.verify = verify
         }
     },
     actions: {
@@ -38,6 +46,7 @@ export default ({
             try{
                 let response = await axios.get('auth/me')
                 commit('SET_USER', response.data)
+                commit('SET_VERIFICATION',response.data.email_verified_at)
 
             }catch (e) {
                 commit('SET_USER', null)
@@ -52,7 +61,14 @@ export default ({
         },
         async register( { dispatch }, credentials){
             let response = await axios.post('auth/register', credentials)
-            return  dispatch('attempt', response.data.access_token)
+            await axios.get('email/resend', {
+                headers:{
+                    'Authorization': 'Bearer ' + response.data.access_token
+                }
+            })
+
+            return dispatch('attempt', response.data.access_token)
+
         }
     }
 })
