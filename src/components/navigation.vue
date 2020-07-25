@@ -1,14 +1,14 @@
 <template>
     <nav>
     <ul>
-        <li>
+        <li class="left">
             <router-link
                 :to="{name:'Home'}"
             >
                 Home
             </router-link>
         </li>
-        <template v-if="authenticated">
+        <template class="right" v-if="authenticated">
             <li>
                 <a href=""> {{ user.name }}</a>
 
@@ -24,15 +24,15 @@
             <a href="#" @click.prevent="signOut">Sign Out</a>
         </li>
         </template>
-        <template v-else>
-            <li>
+        <template v-else class="else">
+            <li class="right">
                 <router-link
                         :to="{name:'register'}"
                 >
                     Register
                 </router-link>
             </li>
-            <li>
+            <li class="right">
                 <router-link
                         :to="{name:'signin'}"
                 >
@@ -65,34 +65,34 @@
         }
     }
 </script>
-<style lang="scss">
-    nav{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        min-height: 8vh;
-        background-color: black;
-        margin-block-start: 0;
-        margin-block-end: 0;
-        padding-inline-start: 0;
-        margin-top: 0;
-
-        ul{
-
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        li {
-            float: left;
-        }
-
-        a {
-            display: block;
-            padding: 8px;
-            color: white;
-
-        }
+<style lang="css">
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
     }
+
+    .left{
+        float: left;
+    }
+
+    .else right{
+        float: right;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+        background-color: #111;
+    }
+
 </style>
