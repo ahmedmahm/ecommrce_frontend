@@ -1,4 +1,5 @@
 <template>
+
   <b-container fluid="sm" class="head">
     <b-row align-v="stretch">
       <b-col cols="5">
@@ -57,6 +58,33 @@
       </b-col>
     </b-row>
   </b-container>
+=======
+  <form @submit.prevent="submit">
+    <div>
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" v-model="form.email" />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        v-model="form.password"
+      />
+    </div>
+
+    <div>
+      <button type="submit">
+        Sign in
+      </button>
+    </div>
+    <div>
+      <label>New Customer? </label>
+      <router-link :to="{ name: 'register' }">Register</router-link>
+    </div>
+  </form>
+
 </template>
 
 <script>
