@@ -89,8 +89,3 @@ export default {
   },
 };
 </script>
-<style lang="css">
-.head {
-  float: center;
-}
-</style>
