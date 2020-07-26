@@ -9,29 +9,20 @@
             </router-link>
         </li>
         <template class="right" v-if="authenticated">
-            <li>
-                <a href=""> {{ user.name }}</a>
 
+            <li class="right">
+                <a href="#" @click.prevent="signOut">Sign Out</a>
             </li>
-        <li>
-            <router-link
-                    :to="{name:'dashboard'}"
-            >
-                dashboard
-            </router-link>
-        </li>
-        <li>
-            <a href="#" @click.prevent="signOut">Sign Out</a>
-        </li>
-        </template>
-        <template v-else class="else">
             <li class="right">
                 <router-link
-                        :to="{name:'register'}"
+                    :to="{name:'account'}"
                 >
-                    Register
+                My Account
                 </router-link>
             </li>
+        </template>
+
+        <template v-else class="else">
             <li class="right">
                 <router-link
                         :to="{name:'signin'}"
@@ -40,6 +31,7 @@
                 </router-link>
             </li>
         </template>
+
     </ul>
     </nav>
 </template>
@@ -78,7 +70,7 @@
         float: left;
     }
 
-    .else right{
+     .right{
         float: right;
     }
 

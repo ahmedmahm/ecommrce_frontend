@@ -1,6 +1,6 @@
 <template>
     <div >
-        Dashboard
+        My Account
     </div>
 </template>
 

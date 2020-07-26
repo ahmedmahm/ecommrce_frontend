@@ -14,6 +14,11 @@
                 Sign in
             </button>
         </div>
+        <div>
+            <label>New Customer?   </label>
+            <router-link
+            :to="{name:'register'}">Register</router-link>
+        </div>
     </form>
 
 </template>
