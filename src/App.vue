@@ -1,28 +1,22 @@
 <template>
   <div id="app">
-    <navigation/>
-    <router-view/>
+    <navigation />
+    <router-view />
   </div>
 </template>
 
 <script>
-  import navigation from '@/components/navigation.vue'
-  export default {
-    components:{
-      navigation
-    }
+import navigation from "@/components/navigation.vue";
 
-  }
+export default {
+  components: {
+    navigation,
+  },
+};
 </script>
-
-
-<style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-
-  }
+<style lang="css">
+#app {
+  background-color: #fff;
+  align-items: center;
+}
 </style>
