@@ -5,7 +5,7 @@
       type="dark"
       variant="dark"
       fixed="top"
-      sticky="false"
+      sticky="true"
     >
       <b-container>
         <b-navbar-brand href="#">Tra Monte</b-navbar-brand>
