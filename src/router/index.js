@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import signin from "../views/signin.vue";
 import account from "../views/account.vue";
 import register from "../views/register.vue";
+import addresses from "../views/addresses";
 Vue.use(VueRouter);
 
 const routes = [
@@ -26,7 +27,11 @@ const routes = [
     path: "/register",
     name: "register",
     component: register,
-  },
+  },{
+    path: "/addresses",
+    name: "addresses",
+    component: addresses,
+  }
 ];
 
 const router = new VueRouter({
